@@ -16,31 +16,63 @@
 @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=Space+Mono&display=swap');
 *{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
 html,body{background:#0B0E13}
-body{font-family:Inter,system-ui,-apple-system,sans-serif;color:#E6EAF0;
-  min-height:100vh;min-height:100dvh;padding:env(safe-area-inset-top) 0 env(safe-area-inset-bottom)}
-#app{max-width:470px;margin:0 auto;padding:26px 16px 46px}
+body{font-family:Inter,system-ui,-apple-system,sans-serif;color:#E6EAF0;min-height:100vh;min-height:100dvh;padding:env(safe-area-inset-top) 0 0}
+#app{max-width:470px;margin:0 auto;padding:26px 16px 100px}
 .head{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:22px}
 .brand{font-family:'Space Mono',monospace;font-size:11px;letter-spacing:2px;color:#6B7686;text-transform:uppercase}
 .date{font-size:11px;color:#3A434F}
 .hero{text-align:center;margin-bottom:6px}
-.big{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:84px;line-height:.9;font-variant-numeric:tabular-nums}
+.big{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:82px;line-height:.9;font-variant-numeric:tabular-nums}
 .biglab{font-family:'Space Grotesk',sans-serif;font-size:12px;letter-spacing:3px;color:#6B7686;text-transform:uppercase;margin-top:4px}
 .best{font-size:12px;color:#3A434F;margin-top:7px}
 .atrisk{background:#E5484D12;border:1px solid #E5484D38;border-radius:12px;padding:9px 14px;font-size:12.5px;color:#F0A6A8;text-align:center;margin:13px 0 20px}
 .spacer{height:20px}
 .seclab{font-family:'Space Grotesk',sans-serif;font-size:11px;letter-spacing:2px;color:#6B7686;text-transform:uppercase;margin:0 0 10px;font-weight:600}
 .seclab2{font-family:'Space Grotesk',sans-serif;font-size:11px;letter-spacing:2px;color:#6B7686;text-transform:uppercase;font-weight:600}
-.rows{display:flex;flex-direction:column;gap:9px;margin-bottom:12px}
+.rows{display:flex;flex-direction:column;gap:9px;margin-bottom:14px}
 .rowwrap{display:flex;align-items:stretch;gap:9px}
 .row{flex:1;display:flex;align-items:center;gap:13px;text-align:left;background:#151A22;border:1px solid #232B36;border-radius:13px;padding:13px 15px;cursor:pointer;transition:all .15s;color:inherit;font:inherit}
 .box{flex-shrink:0;width:23px;height:23px;border:2px solid #3A434F;display:grid;place-items:center;transition:all .15s}
 .rowtxt{flex:1}
 .rl{display:block;font-size:15px;font-weight:600;font-family:'Space Grotesk',sans-serif;color:#C3CAD4}
 .rs{display:block;font-size:12px;color:#6B7686;margin-top:1px}
-.info{flex-shrink:0;width:44px;border-radius:13px;background:#151A22;border:1px solid #232B36;color:#6B7686;cursor:pointer;font-size:18px;display:grid;place-items:center;transition:all .15s;font-family:'Space Grotesk',sans-serif}
-.detail{background:#1B212B;border:1px solid #232B36;border-radius:14px;padding:16px;margin-bottom:16px}
-.dlabel{font-family:'Space Mono',monospace;font-size:10px;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:14px}
-.dp{font-size:12.5px;color:#C3CAD4;line-height:1.55;margin-bottom:10px}
+.glyph{margin-right:7px;font-size:13px}
+.info{flex-shrink:0;width:44px;border-radius:13px;background:#151A22;border:1px solid #232B36;color:#6B7686;cursor:pointer;font-size:16px;font-style:italic;font-family:'Space Grotesk',sans-serif;display:grid;place-items:center;transition:all .15s}
+.gridhead{display:flex;justify-content:space-between;align-items:baseline;margin:20px 0 11px}
+.hint{font-size:11px;color:#3A434F}
+.grid{display:grid;grid-template-columns:repeat(10,1fr);gap:6px;margin-bottom:8px}
+.cell{aspect-ratio:1;border-radius:7px;cursor:pointer;padding:0;position:relative;transition:background .15s}
+.cd{position:absolute;top:3px;right:3px;width:5px;height:5px;border-radius:50%}
+.legend{display:flex;gap:14px;flex-wrap:wrap;font-size:10.5px;color:#6B7686;margin-bottom:26px}
+.lg{display:inline-flex;align-items:center;gap:5px}
+.sw{width:10px;height:10px;border-radius:3px}
+.sw.dot{width:6px;height:6px;border-radius:50%}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:7px}
+.stat{background:#151A22;border:1px solid #232B36;border-radius:11px;padding:12px 4px;text-align:center}
+.sn{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:22px;font-variant-numeric:tabular-nums}
+.sl{font-size:10px;color:#6B7686;margin-top:2px}
+.backup{display:flex;gap:9px;margin-top:22px}
+.bk{flex:1;background:#151A22;border:1px solid #232B36;color:#8A93A3;border-radius:11px;padding:11px 8px;font-size:12px;font-weight:600;font-family:'Space Grotesk',sans-serif;cursor:pointer;transition:all .15s}
+.bk:active{background:#1B212B}
+.foot{text-align:center;margin-top:24px;font-size:11px;color:#3A434F;font-style:italic}
+
+.gintro{font-size:12.5px;color:#6B7686;margin-bottom:14px;line-height:1.5}
+.gcard{background:#151A22;border:1px solid #232B36;border-radius:14px;margin-bottom:10px;overflow:hidden}
+.ghead{display:flex;align-items:center;gap:11px;width:100%;background:transparent;border:none;padding:15px 16px;cursor:pointer;color:inherit;font:inherit}
+.gdot{width:10px;height:10px;border-radius:50%;flex-shrink:0}
+.gtitle{flex:1;text-align:left;font-family:'Space Grotesk',sans-serif;font-size:15px;font-weight:600}
+.gchev{color:#6B7686;font-size:18px;font-family:'Space Grotesk',sans-serif}
+.gbody{padding:2px 16px 16px}
+.steps{list-style:none;display:flex;flex-direction:column;gap:8px;margin:4px 0}
+.steps li{display:flex;align-items:center;gap:11px;font-size:14px;color:#C3CAD4}
+.num{flex-shrink:0;width:22px;height:22px;border-radius:6px;background:#1B212B;border:1px solid #2C333F;display:grid;place-items:center;font-size:11px;font-family:'Space Mono',monospace;color:#8A93A3}
+.gnote{margin-top:12px;border-left:2px solid;padding:9px 12px;border-radius:0 8px 8px 0;font-size:12.5px;background:#1B212B}
+.kvlist{list-style:none;display:flex;flex-direction:column;gap:7px;margin:4px 0}
+.kvlist li{display:flex;justify-content:space-between;gap:10px;font-size:14px;color:#C3CAD4;border-left:2px solid #2C333F;padding-left:11px}
+.kvlist .d{color:#8A93A3;font-family:'Space Mono',monospace;font-size:12px;flex-shrink:0}
+.blist{list-style:none;display:flex;flex-direction:column;gap:8px;margin:4px 0}
+.blist li{position:relative;padding-left:16px;font-size:14px;color:#C3CAD4}
+.blist li:before{content:"";position:absolute;left:2px;top:8px;width:5px;height:5px;border-radius:50%;background:#4A5562}
 .phase{margin-bottom:14px}
 .phase:last-child{margin-bottom:0}
 .phead{display:flex;align-items:center;gap:9px;margin-bottom:7px}
@@ -50,23 +82,12 @@ body{font-family:Inter,system-ui,-apple-system,sans-serif;color:#E6EAF0;
 .plist li{display:flex;justify-content:space-between;gap:10px;font-size:12.5px;color:#C3CAD4;border-left:2px solid;padding-left:10px;margin-bottom:4px}
 .plist .d{color:#6B7686;font-family:'Space Mono',monospace;font-size:11px;flex-shrink:0}
 .pnote{font-size:11.5px;color:#6B7686;font-style:italic;margin-top:6px;padding-left:10px}
-.gridhead{display:flex;justify-content:space-between;align-items:baseline;margin:20px 0 11px}
-.hint{font-size:11px;color:#3A434F}
-.grid{display:grid;grid-template-columns:repeat(10,1fr);gap:6px;margin-bottom:8px}
-.cell{aspect-ratio:1;border-radius:7px;cursor:pointer;padding:0;position:relative;transition:background .15s}
-.cd{position:absolute;top:3px;width:5px;height:5px;border-radius:50%}
-.legend{display:flex;gap:14px;flex-wrap:wrap;font-size:10.5px;color:#6B7686;margin-bottom:26px}
-.lg{display:inline-flex;align-items:center;gap:5px}
-.sw{width:10px;height:10px;border-radius:3px}
-.sw.dot{width:6px;height:6px;border-radius:50%}
-.stats{display:grid;grid-template-columns:repeat(5,1fr);gap:7px}
-.stat{background:#151A22;border:1px solid #232B36;border-radius:11px;padding:12px 4px;text-align:center}
-.sn{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:22px;font-variant-numeric:tabular-nums}
-.sl{font-size:9.5px;color:#6B7686;margin-top:2px}
-.foot{text-align:center;margin-top:24px;font-size:11px;color:#3A434F;font-style:italic}
-.backup{display:flex;gap:9px;margin-top:22px}
-.bk{flex:1;background:#151A22;border:1px solid #232B36;color:#8A93A3;border-radius:11px;padding:11px 8px;font-size:12px;font-weight:600;font-family:'Space Grotesk',sans-serif;cursor:pointer;transition:all .15s}
-.bk:active{background:#1B212B}
+
+.nav{position:fixed;left:0;right:0;bottom:0;z-index:50;background:rgba(11,14,19,.92);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-top:1px solid #1C232C;padding:8px 16px calc(8px + env(safe-area-inset-bottom));display:flex;justify-content:center}
+.navinner{display:flex;gap:8px;width:100%;max-width:470px}
+.navbtn{flex:1;background:transparent;border:1px solid #232B36;border-radius:12px;padding:11px;font-family:'Space Grotesk',sans-serif;font-size:13px;font-weight:600;color:#6B7686;cursor:pointer;transition:all .15s}
+.navbtn.on{background:#151A22;color:#E6EAF0;border-color:#2C333F}
+
 .backdrop{position:fixed;inset:0;background:rgba(5,7,10,.66);display:flex;align-items:flex-end;justify-content:center;z-index:100}
 .sheet{width:100%;max-width:470px;background:#11161E;border:1px solid #232B36;border-bottom:none;border-radius:20px 20px 0 0;padding:18px 16px calc(20px + env(safe-area-inset-bottom));box-shadow:0 -12px 44px rgba(0,0,0,.55)}
 .sheethead{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:6px}
@@ -93,224 +114,218 @@ body{font-family:Inter,system-ui,-apple-system,sans-serif;color:#E6EAF0;
 <script>
 const KEY = "life-os-v1";
 const C = {
-  sleep:"#6E7BF2", walk:"#2DD4A7", aim:"#7B4DFF", run:"#F5A33C", strength:"#F2645C",
-  walkBg:"#2DD4A7", sleepBg:"#6E7BF2"
+  bg:"#0B0E13", surface:"#151A22", surfaceHi:"#1B212B", line:"#232B36",
+  text:"#E6EAF0", muted:"#6B7686", faint:"#3A434F",
+  sleep:"#6E7BF2", skinAM:"#E0A04C", walk:"#2DD4A7", aim:"#7B4DFF", skinPM:"#5FA3C4", run:"#F2645C",
+  danger:"#E5484D"
 };
-const ANCHORS = [
-  {key:"sleep", label:"Sleep window", sub:"In bed 10:45 · up 7:00", color:C.sleep},
-  {key:"walk",  label:"Daily walk",   sub:"Baseline + ~3k steps",   color:C.walk},
-  {key:"aim",   label:"Aim — 20 min min", sub:"Warm up → session → stretch", color:C.aim, detail:"aim"},
+
+// daily items, chronological. chain:true = needed for a chain day.
+const DAILY = [
+  {key:"sleep",  label:"Sleep",    sub:"10:45 → 7:00 · 8h", color:C.sleep,  chain:true, guide:"sleep"},
+  {key:"skinAM", label:"Skincare", sub:"Morning · 3 steps", color:C.skinAM, chain:true, guide:"skinAM", glyph:"\u2600"},
+  {key:"walk",   label:"Walk",     sub:"3,600 steps",       color:C.walk,   chain:true, guide:"walk"},
+  {key:"aim",    label:"Aim",      sub:"20 min",            color:C.aim,    chain:true, guide:"aim"},
+  {key:"skinPM", label:"Skincare", sub:"Night · 7 steps",   color:C.skinPM, chain:true, guide:"skinPM", glyph:"\u263E"},
+  {key:"run",    label:"Run",      sub:"Optional",          color:C.run,    chain:false},
 ];
-const BONUS = [
-  {key:"run",      label:"Run", sub:"Occasional — bonus", color:C.run},
-  {key:"strength", label:"Wrist strength block", sub:"Loaded · own block · 2–3×/wk", color:C.strength, detail:"strength"},
+const CHAIN_KEYS = DAILY.filter(d=>d.chain).map(d=>d.key);
+
+const GUIDES = [
+  {id:"sleep",  title:"Sleep",                     color:C.sleep},
+  {id:"skinAM", title:"Skincare — Morning",        color:C.skinAM},
+  {id:"skinPM", title:"Skincare — Night",          color:C.skinPM},
+  {id:"walk",   title:"Walk",                       color:C.walk},
+  {id:"aim",    title:"Aim — Kovaak's benchmark",   color:C.aim},
+  {id:"hand",   title:"Hand & wrist — strength",    color:C.run},
 ];
 
 const pad = n => String(n).padStart(2,"0");
 const iso = d => { const x=new Date(d); return `${x.getFullYear()}-${pad(x.getMonth()+1)}-${pad(x.getDate())}`; };
 const today = () => iso(new Date());
 const addDays = (s,n) => { const [y,m,d]=s.split("-").map(Number); const dt=new Date(y,m-1,d); dt.setDate(dt.getDate()+n); return iso(dt); };
-const chainDone = e => !!(e && e.sleep && e.walk && e.aim);
+const fmtDay = s => { const [y,m,d]=s.split("-").map(Number); return new Date(y,m-1,d).toLocaleDateString("en-GB",{weekday:"long",day:"numeric",month:"long"}); };
+const chainDone = e => !!e && CHAIN_KEYS.every(k=>e[k]);
+const anyLogged = e => !!e && Object.values(e).some(Boolean);
 
 let log = {};
-let openDetail = null;
+let view = "track";
+let openGuide = null;
 let editDate = null;
 try { log = JSON.parse(localStorage.getItem(KEY)) || {}; } catch(e){ log = {}; }
 const save = () => { try { localStorage.setItem(KEY, JSON.stringify(log)); } catch(e){} };
-const fmtDay = s => { const [y,m,d]=s.split("-").map(Number); return new Date(y,m-1,d).toLocaleDateString("en-GB",{weekday:"long",day:"numeric",month:"long"}); };
 
 function streaks(){
-  const t = today();
-  const todayDone = chainDone(log[t]);
-  let streak = 0, cur = todayDone ? t : addDays(t,-1);
-  while (chainDone(log[cur])) { streak++; cur = addDays(cur,-1); }
-  let best = 0;
-  const days = Object.keys(log).filter(d=>chainDone(log[d])).sort();
+  const t=today(); const todayDone=chainDone(log[t]);
+  let streak=0, cur=todayDone?t:addDays(t,-1);
+  while(chainDone(log[cur])){ streak++; cur=addDays(cur,-1); }
+  let best=0; const days=Object.keys(log).filter(d=>chainDone(log[d])).sort();
   let run=0, prev=null;
-  for (const d of days){ run = (prev && addDays(prev,1)===d) ? run+1 : 1; best=Math.max(best,run); prev=d; }
-  best = Math.max(best, streak);
-  return { streak, best, todayDone };
+  for(const d of days){ run=(prev&&addDays(prev,1)===d)?run+1:1; best=Math.max(best,run); prev=d; }
+  best=Math.max(best,streak);
+  return {streak,best,todayDone};
 }
 
 const check = `<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#0B0E13" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>`;
 
-function row(a, on, square){
-  const shape = square ? "6px" : "50%";
-  const box = `<span class="box" style="border-radius:${shape};border-color:${on?a.color:'#3A434F'};background:${on?a.color:'transparent'}">${on?check:""}</span>`;
-  const info = a.detail
-    ? `<button class="info ${openDetail===a.detail?'open':''}" data-act="detail" data-detail="${a.detail}" aria-label="details" style="${openDetail===a.detail?`color:${a.color};border-color:${a.color}55;background:${a.color}1A`:''}">${openDetail===a.detail?'−':'i'}</button>`
-    : "";
+function row(a,on){
+  const shape=a.chain?"50%":"6px";
+  const glyph=a.glyph?`<span class="glyph" style="color:${a.color}">${a.glyph}</span>`:"";
+  const info=a.guide?`<button class="info" data-act="guide" data-guide="${a.guide}" aria-label="info">i</button>`:"";
   return `<div class="rowwrap">
     <button class="row" data-act="toggle" data-key="${a.key}" style="${on?`background:${a.color}12;border-color:${a.color}66`:''}">
-      ${box}
-      <span class="rowtxt"><span class="rl" style="${on?'color:#E6EAF0':''}">${a.label}</span><span class="rs">${a.sub}</span></span>
+      <span class="box" style="border-radius:${shape};border-color:${on?a.color:'#3A434F'};background:${on?a.color:'transparent'}">${on?check:""}</span>
+      <span class="rowtxt"><span class="rl" style="${on?'color:#E6EAF0':''}">${glyph}${a.label}</span><span class="rs">${a.sub}</span></span>
     </button>${info}</div>`;
 }
 
-function phase(tag,color,title,items,note){
-  const lis = items.map(it=>`<li style="border-color:${color}55"><span>${it.n}</span><span class="d">${it.d}</span></li>`).join("");
-  return `<div class="phase">
-    <div class="phead"><span class="ptag" style="background:${color}">${tag}</span><span class="ptitle">${title}</span></div>
-    <ul class="plist">${lis}</ul>${note?`<div class="pnote">${note}</div>`:""}</div>`;
-}
+function trackView(t,e){
+  const {streak,best,todayDone}=streaks();
+  const dateStr=new Date().toLocaleDateString("en-GB",{weekday:"short",day:"numeric",month:"short"});
+  const chainItems=DAILY.filter(d=>d.chain), bonusItems=DAILY.filter(d=>!d.chain);
 
-const aimDetail = () => `<div class="detail">
-  <div class="dlabel" style="color:${C.aim}">How the session runs</div>
-  ${phase("BEFORE",C.sleep,"Light warm-up · 2 rounds",[
-    {n:"Wrist curls · palm up",d:"30s"},{n:"Reverse curls · palm down",d:"30s"},
-    {n:"Sideways tilts · hammer",d:"30s"},{n:"Band openings",d:"30s"},{n:"Grip-tool flexes",d:"30s"}],
-    "Light & dynamic only — blood flow, not burn. Forearm supported, wrist only.")}
-  ${phase("SESSION",C.aim,"Aim · 20 min minimum",[
-    {n:"Clicking — lead here (weak area)",d:"CRISP"},{n:"Tracking — stay loose",d:"SMOOTH"}],
-    "Pull the actual scenarios from your training-routine poster.")}
-  ${phase("AFTER",C.run,"Stretch · right after only",[
-    {n:"Flexor stretch — palm out, fingers up",d:"15s ×3"},{n:"Extensor stretch — palm down, fingers down",d:"15s ×3"}],
-    "Static stretches go after, never before. Mild tension only — stop on sharp pain, numbness or tingling.")}
-</div>`;
-
-const strengthDetail = () => `<div class="detail">
-  <div class="dlabel" style="color:${C.strength}">Own block · rest days or end of day</div>
-  <p class="dp">The loaded dumbbell work — heavier than the warm-up. Kept separate so it never dulls fine-aim control right before a session.</p>
-  ${phase("LOAD",C.strength,"2–3 kg → progress",[
-    {n:"Wrist curls · palm up",d:"2–3 sets"},{n:"Reverse curls · palm down",d:"2–3 sets"},{n:"Hammer tilts",d:"2–3 sets"}],
-    "2–3×/week. Forearm supported, controlled tempo. Tick the box on days you do it.")}
-</div>`;
-
-function render(){
-  const t = today();
-  const e = log[t] || {};
-  const {streak,best,todayDone} = streaks();
-  const dateStr = new Date().toLocaleDateString("en-GB",{weekday:"short",day:"numeric",month:"short"});
-
-  const grid = Array.from({length:60},(_,i)=>addDays(t,-(59-i))).map(d=>{
-    const en = log[d]; const done = chainDone(en);
-    const partial = en && (en.sleep||en.walk||en.aim) && !done;
-    const isT = d===t;
-    const bg = done ? C.walk : partial ? `${C.sleep}4D` : "#151A22";
-    const bd = isT ? `1.5px solid ${C.walk}` : "1px solid #232B36";
-    const runDot = en&&en.run ? `<span class="cd" style="left:3px;background:${C.run}"></span>`:"";
-    const strDot = en&&en.strength ? `<span class="cd" style="right:3px;background:${C.strength}"></span>`:"";
-    return `<button class="cell" data-act="editopen" data-date="${d}" style="background:${bg};border:${bd}" aria-label="${d}">${runDot}${strDot}</button>`;
+  const grid=Array.from({length:30},(_,i)=>addDays(t,-(29-i))).map(d=>{
+    const en=log[d]; const done=chainDone(en);
+    const partial=en&&CHAIN_KEYS.some(k=>en[k])&&!done; const isT=d===t;
+    const bg=done?C.walk:partial?`${C.sleep}4D`:C.surface;
+    const bd=isT?`1.5px solid ${C.walk}`:`1px solid ${C.line}`;
+    const rd=en&&en.run?`<span class="cd" style="background:${C.run}"></span>`:"";
+    return `<button class="cell" data-act="editopen" data-date="${d}" style="background:${bg};border:${bd}" aria-label="${d}">${rd}</button>`;
   }).join("");
 
-  const mp = t.slice(0,7);
-  const month = Object.entries(log).filter(([d])=>d.startsWith(mp));
-  const cnt = k => month.filter(([,x])=>x[k]).length;
-  const stat = (n,l,c)=>`<div class="stat"><div class="sn" style="color:${c}">${n}</div><div class="sl">${l}</div></div>`;
+  const mp=t.slice(0,7), month=Object.entries(log).filter(([d])=>d.startsWith(mp));
+  const cnt=k=>month.filter(([,x])=>x[k]).length;
+  const stat=(n,l,c)=>`<div class="stat"><div class="sn" style="color:${c}">${n}</div><div class="sl">${l}</div></div>`;
 
-  document.getElementById("app").innerHTML = `
-    <div class="head">
-      <span class="brand">Life · Operating System</span>
-      <span class="date">${dateStr}</span>
-    </div>
-    <div class="hero">
-      <div class="big" style="color:${streak>0?'#E6EAF0':'#3A434F'};text-shadow:${streak>0?`0 0 26px ${C.walk}40`:'none'}">${streak}</div>
-      <div class="biglab">Day Chain</div>
-      <div class="best">Best · ${best} ${best===1?'day':'days'}</div>
-    </div>
-    ${ todayDone
-      ? `<div class="spacer"></div>`
-      : `<div class="atrisk">Today isn't locked in — all three anchors green keeps the chain alive.</div>` }
-
-    <div class="seclab">Daily anchors</div>
-    <div class="rows">${ANCHORS.map(a=>row(a,!!e[a.key],false)).join("")}</div>
-    ${openDetail==="aim"?aimDetail():""}
-
-    <div class="seclab">Bonus · never breaks the chain</div>
-    <div class="rows">${BONUS.map(a=>row(a,!!e[a.key],true)).join("")}</div>
-    ${openDetail==="strength"?strengthDetail():""}
-
-    <div class="gridhead"><span class="seclab2">Last 60 days</span><span class="hint">tap any day to edit</span></div>
-    <div class="grid">${grid}</div>
-    <div class="legend">
-      <span class="lg"><span class="sw" style="background:${C.walk}"></span>chain day</span>
-      <span class="lg"><span class="sw" style="background:${C.sleep}88"></span>partial</span>
-      <span class="lg"><span class="sw dot" style="background:${C.run}"></span>run</span>
-      <span class="lg"><span class="sw dot" style="background:${C.strength}"></span>strength</span>
-    </div>
-
-    <div class="seclab">This month</div>
-    <div class="stats">
-      ${stat(cnt("sleep"),"Sleep",C.sleep)}${stat(cnt("walk"),"Walks",C.walk)}${stat(cnt("aim"),"Aim",C.aim)}${stat(cnt("run"),"Runs",C.run)}${stat(cnt("strength"),"Strength",C.strength)}
-    </div>
-    <div class="backup">
-      <button class="bk" data-act="export">&#8595; Export backup</button>
-      <button class="bk" data-act="import">&#8593; Import backup</button>
-    </div>
-    <div class="foot">Loose wrist. Quiet hand. Clean chain.</div>
-    ${editDate!==null?editorSheet(t):""}
+  return `
+   <div class="head"><span class="brand">Life · OS</span><span class="date">${dateStr}</span></div>
+   <div class="hero">
+     <div class="big" style="color:${streak>0?'#E6EAF0':'#3A434F'};text-shadow:${streak>0?`0 0 26px ${C.walk}40`:'none'}">${streak}</div>
+     <div class="biglab">Day Chain</div>
+     <div class="best">Best · ${best} ${best===1?'day':'days'}</div>
+   </div>
+   ${todayDone?`<div class="spacer"></div>`:`<div class="atrisk">Today isn't locked in — every anchor green keeps the chain alive.</div>`}
+   <div class="seclab">Today</div>
+   <div class="rows">${chainItems.map(a=>row(a,!!e[a.key])).join("")}</div>
+   <div class="seclab">Bonus · never breaks the chain</div>
+   <div class="rows">${bonusItems.map(a=>row(a,!!e[a.key])).join("")}</div>
+   <div class="gridhead"><span class="seclab2">Last 30 days</span><span class="hint">tap any day to edit</span></div>
+   <div class="grid">${grid}</div>
+   <div class="legend">
+     <span class="lg"><span class="sw" style="background:${C.walk}"></span>chain day</span>
+     <span class="lg"><span class="sw" style="background:${C.sleep}88"></span>partial</span>
+     <span class="lg"><span class="sw dot" style="background:${C.run}"></span>run</span>
+   </div>
+   <div class="seclab">This month</div>
+   <div class="stats">
+     ${stat(cnt("sleep"),"Sleep",C.sleep)}${stat(cnt("skinAM"),"Skin AM",C.skinAM)}${stat(cnt("walk"),"Walks",C.walk)}${stat(cnt("aim"),"Aim",C.aim)}${stat(cnt("skinPM"),"Skin PM",C.skinPM)}${stat(cnt("run"),"Runs",C.run)}
+   </div>
+   <div class="backup">
+     <button class="bk" data-act="export">&#8595; Export backup</button>
+     <button class="bk" data-act="import">&#8593; Import backup</button>
+   </div>
+   <div class="foot">Loose wrist. Clear skin. Clean chain.</div>
   `;
 }
 
-function editorSheet(t){
-  const e = log[editDate]||{};
-  const items = [...ANCHORS, ...BONUS];
-  const rows = items.map(a=>{
-    const on = !!e[a.key];
-    const shape = (a.key==="run"||a.key==="strength") ? "6px" : "50%";
-    return `<button class="erow" data-act="dtoggle" data-key="${a.key}" style="${on?`background:${a.color}12;border-color:${a.color}66`:''}">
-      <span class="ebox" style="border-radius:${shape};border-color:${on?a.color:'#3A434F'};background:${on?a.color:'transparent'}">${on?check:''}</span>
-      <span class="erowtxt"><span class="erl" style="${on?'color:#E6EAF0':''}">${a.label}</span><span class="ers">${a.sub}</span></span>
-    </button>`;
-  }).join("");
-  const isToday = editDate===t;
-  const any = !!log[editDate] && Object.values(log[editDate]).some(Boolean);
-  return `<div class="backdrop" data-act="dclose">
-    <div class="sheet" data-act="noop">
-      <div class="sheethead">
-        <div><div class="sheetday">${fmtDay(editDate)}</div>${isToday?'<div class="sheetsub">TODAY</div>':''}</div>
-        <button class="xbtn" data-act="dclose" aria-label="close">✕</button>
-      </div>
-      <div class="ehint">Tap each item to mark it done or undo it.</div>
-      <div class="erows">${rows}</div>
-      <div class="sheetbtns">
-        <button class="clearbtn" data-act="dclear" ${any?'':'disabled'}>Clear this day</button>
-        <button class="donebtn" data-act="dclose">Done</button>
-      </div>
-    </div>
+function phase(tag,color,title,items,note){
+  const lis=items.map(it=>`<li style="border-color:${color}55"><span>${it.n}</span><span class="d">${it.d}</span></li>`).join("");
+  return `<div class="phase"><div class="phead"><span class="ptag" style="background:${color}">${tag}</span><span class="ptitle">${title}</span></div><ul class="plist">${lis}</ul>${note?`<div class="pnote">${note}</div>`:""}</div>`;
+}
+function steps(list){ return `<ol class="steps">`+list.map((s,i)=>`<li><span class="num">${i+1}</span><span>${s}</span></li>`).join("")+`</ol>`; }
+function gnote(color,txt){ return `<div class="gnote" style="border-color:${color}55;color:${color}">${txt}</div>`; }
+function kv(items){ return `<ul class="kvlist">`+items.map(it=>`<li><span>${it.k}</span><span class="d">${it.v}</span></li>`).join("")+`</ul>`; }
+function bullets(items){ return `<ul class="blist">`+items.map(it=>`<li>${it}</li>`).join("")+`</ul>`; }
+
+function guideBody(id){
+  if(id==="sleep") return kv([{k:"In bed",v:"10:45 PM"},{k:"Wake",v:"7:00 AM"},{k:"Total",v:"~8 hours"}]) + gnote(C.sleep,"Wind-down 10:15. Same times every day — consistency beats one long lie-in.");
+  if(id==="skinAM") return steps(["Water wash","Heartleaf 77 toner","Heartleaf 70 lotion"]) + gnote(C.skinAM,"+ SPF 50 — when near a window or heading outside.");
+  if(id==="skinPM") return steps(["Cleansing oil","BHA cleansing foam","Heartleaf 77 toner","Azelaic 10% — green tube","Niacinamide + TXA — red tube","Heartleaf 70 lotion","Cicaplast B5+"]);
+  if(id==="walk") return kv([{k:"Current average",v:"2.5–3k / day"},{k:"Daily target",v:"3,600 steps"}]) + gnote(C.walk,"≈ +20% on your baseline. Track on your phone or watch; tick Walk once you pass 3,600.");
+  if(id==="aim") return bullets(["Run the Kovaak's benchmark","Note your rank in each category","Drill your weakest category","Retest to track the climb"]) + gnote(C.aim,"20 min minimum daily. Measure progress by benchmark rank, not by feel.");
+  if(id==="hand") return phase("STRENGTH",C.run,"Loaded · 2–3×/week",[{n:"Wrist curls · palm up",d:"2–3 sets"},{n:"Reverse curls · palm down",d:"2–3 sets"},{n:"Sideways tilts · hammer",d:"2–3 sets"}],"Strength only — no warm-up weights. 2–3 kg, controlled tempo. Rest days or end of day, never right before fine aim.");
+  return "";
+}
+
+function guideCard(g){
+  const open=openGuide===g.id;
+  return `<div class="gcard">
+    <button class="ghead" data-act="guide" data-guide="${g.id}">
+      <span class="gdot" style="background:${g.color}"></span>
+      <span class="gtitle">${g.title}</span>
+      <span class="gchev">${open?"\u2212":"+"}</span>
+    </button>
+    ${open?`<div class="gbody">${guideBody(g.id)}</div>`:""}
   </div>`;
 }
 
-document.getElementById("app").addEventListener("click", (ev)=>{
-  const el = ev.target.closest("[data-act]");
-  if(!el) return;
-  const act = el.dataset.act, t = today();
-  if(act==="toggle"){
-    const k = el.dataset.key; log[t] = {...(log[t]||{})}; log[t][k] = !log[t][k]; save(); render();
-  } else if(act==="detail"){
-    openDetail = openDetail===el.dataset.detail ? null : el.dataset.detail; render();
-  } else if(act==="editopen"){
-    editDate = el.dataset.date; render();
-  } else if(act==="dtoggle"){
-    const k = el.dataset.key; log[editDate] = {...(log[editDate]||{})}; log[editDate][k] = !log[editDate][k]; save(); render();
-  } else if(act==="dclear"){
-    delete log[editDate]; save(); render();
-  } else if(act==="dclose"){
-    editDate = null; render();
-  } else if(act==="noop"){
-    /* tap inside sheet — ignore */
-  } else if(act==="export"){
-    const blob = new Blob([JSON.stringify(log,null,2)],{type:"application/json"});
-    const url = URL.createObjectURL(blob);
-    const a = document.createElement("a");
+function guidesView(){
+  return `
+   <div class="head"><span class="brand">Guides</span><span class="date">reference</span></div>
+   <div class="gintro">Reference only — these don't affect your chain. Tap a card to expand the steps.</div>
+   ${GUIDES.map(guideCard).join("")}
+   <div class="foot">Built from your own protocols.</div>
+  `;
+}
+
+function navBar(){
+  const tab=(id,label)=>`<button class="navbtn ${view===id?'on':''}" data-act="nav" data-view="${id}">${label}</button>`;
+  return `<div class="nav"><div class="navinner">${tab("track","Track")}${tab("guides","Guides")}</div></div>`;
+}
+
+function editorSheet(t){
+  const e=log[editDate]||{};
+  const rows=DAILY.map(a=>{
+    const on=!!e[a.key]; const shape=a.chain?"50%":"6px";
+    const glyph=a.glyph?`<span class="glyph" style="color:${a.color}">${a.glyph}</span>`:"";
+    return `<button class="erow" data-act="dtoggle" data-key="${a.key}" style="${on?`background:${a.color}12;border-color:${a.color}66`:''}">
+      <span class="ebox" style="border-radius:${shape};border-color:${on?a.color:'#3A434F'};background:${on?a.color:'transparent'}">${on?check:''}</span>
+      <span class="erowtxt"><span class="erl" style="${on?'color:#E6EAF0':''}">${glyph}${a.label}</span><span class="ers">${a.sub}</span></span>
+    </button>`;
+  }).join("");
+  const isToday=editDate===t, any=anyLogged(log[editDate]);
+  return `<div class="backdrop" data-act="dclose"><div class="sheet" data-act="noop">
+    <div class="sheethead"><div><div class="sheetday">${fmtDay(editDate)}</div>${isToday?'<div class="sheetsub">TODAY</div>':''}</div><button class="xbtn" data-act="dclose" aria-label="close">✕</button></div>
+    <div class="ehint">Tap each item to mark it done or undo it.</div>
+    <div class="erows">${rows}</div>
+    <div class="sheetbtns"><button class="clearbtn" data-act="dclear" ${any?'':'disabled'}>Clear this day</button><button class="donebtn" data-act="dclose">Done</button></div>
+  </div></div>`;
+}
+
+function render(){
+  const t=today(), e=log[t]||{};
+  const main = view==="track" ? trackView(t,e) : guidesView();
+  document.getElementById("app").innerHTML = main + navBar() + (editDate!==null?editorSheet(t):"");
+}
+
+document.getElementById("app").addEventListener("click",(ev)=>{
+  const el=ev.target.closest("[data-act]"); if(!el) return;
+  const act=el.dataset.act, t=today();
+  if(act==="toggle"){ const k=el.dataset.key; log[t]={...(log[t]||{})}; log[t][k]=!log[t][k]; save(); render(); }
+  else if(act==="nav"){ view=el.dataset.view; if(view!=="guides") openGuide=null; render(); }
+  else if(act==="guide"){ const id=el.dataset.guide; if(view==="guides"&&openGuide===id){ openGuide=null; } else { view="guides"; openGuide=id; } render(); }
+  else if(act==="editopen"){ editDate=el.dataset.date; render(); }
+  else if(act==="dtoggle"){ const k=el.dataset.key; log[editDate]={...(log[editDate]||{})}; log[editDate][k]=!log[editDate][k]; save(); render(); }
+  else if(act==="dclear"){ delete log[editDate]; save(); render(); }
+  else if(act==="dclose"){ editDate=null; render(); }
+  else if(act==="noop"){ /* tap inside sheet */ }
+  else if(act==="export"){
+    const blob=new Blob([JSON.stringify(log,null,2)],{type:"application/json"});
+    const url=URL.createObjectURL(blob); const a=document.createElement("a");
     a.href=url; a.download="life-os-backup-"+today()+".json";
-    document.body.appendChild(a); a.click(); a.remove();
-    setTimeout(()=>URL.revokeObjectURL(url),1500);
-  } else if(act==="import"){
-    document.getElementById("file").click();
+    document.body.appendChild(a); a.click(); a.remove(); setTimeout(()=>URL.revokeObjectURL(url),1500);
   }
+  else if(act==="import"){ document.getElementById("file").click(); }
 });
 
-document.getElementById("file").addEventListener("change", (ev)=>{
-  const f = ev.target.files[0]; if(!f) return;
-  const reader = new FileReader();
-  reader.onload = () => {
-    try {
-      const data = JSON.parse(reader.result);
-      if(data && typeof data==="object" && !Array.isArray(data)){
-        log = {...log, ...data}; save(); render(); alert("Backup restored.");
-      } else { alert("That file isn't a valid backup."); }
-    } catch(e){ alert("That file couldn't be read as a backup."); }
+document.getElementById("file").addEventListener("change",(ev)=>{
+  const f=ev.target.files[0]; if(!f) return;
+  const reader=new FileReader();
+  reader.onload=()=>{
+    try{ const data=JSON.parse(reader.result);
+      if(data&&typeof data==="object"&&!Array.isArray(data)){ log={...log,...data}; save(); render(); alert("Backup restored."); }
+      else { alert("That file isn't a valid backup."); }
+    }catch(e){ alert("That file couldn't be read as a backup."); }
     ev.target.value="";
   };
   reader.readAsText(f);
