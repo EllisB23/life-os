@@ -67,6 +67,23 @@ body{font-family:Inter,system-ui,-apple-system,sans-serif;color:#E6EAF0;
 .backup{display:flex;gap:9px;margin-top:22px}
 .bk{flex:1;background:#151A22;border:1px solid #232B36;color:#8A93A3;border-radius:11px;padding:11px 8px;font-size:12px;font-weight:600;font-family:'Space Grotesk',sans-serif;cursor:pointer;transition:all .15s}
 .bk:active{background:#1B212B}
+.backdrop{position:fixed;inset:0;background:rgba(5,7,10,.66);display:flex;align-items:flex-end;justify-content:center;z-index:100}
+.sheet{width:100%;max-width:470px;background:#11161E;border:1px solid #232B36;border-bottom:none;border-radius:20px 20px 0 0;padding:18px 16px calc(20px + env(safe-area-inset-bottom));box-shadow:0 -12px 44px rgba(0,0,0,.55)}
+.sheethead{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:6px}
+.sheetday{font-family:'Space Grotesk',sans-serif;font-size:18px;font-weight:600}
+.sheetsub{font-size:11px;color:#2DD4A7;margin-top:3px;font-family:'Space Mono',monospace;letter-spacing:2px}
+.xbtn{background:#1B212B;border:1px solid #232B36;color:#8A93A3;width:34px;height:34px;border-radius:9px;font-size:13px;cursor:pointer;flex-shrink:0}
+.ehint{font-size:12px;color:#6B7686;margin-bottom:14px}
+.erows{display:flex;flex-direction:column;gap:8px;margin-bottom:16px}
+.erow{display:flex;align-items:center;gap:12px;text-align:left;background:#151A22;border:1px solid #232B36;border-radius:12px;padding:12px 14px;cursor:pointer;width:100%;color:inherit;font:inherit;transition:all .12s}
+.ebox{flex-shrink:0;width:22px;height:22px;border:2px solid #3A434F;display:grid;place-items:center;transition:all .12s}
+.erowtxt{flex:1}
+.erl{display:block;font-size:14.5px;font-weight:600;font-family:'Space Grotesk',sans-serif;color:#C3CAD4}
+.ers{display:block;font-size:11.5px;color:#6B7686;margin-top:1px}
+.sheetbtns{display:flex;gap:9px}
+.clearbtn{flex:1;background:transparent;border:1px solid #E5484D55;color:#E5777B;border-radius:11px;padding:12px;font-size:13px;font-weight:600;font-family:'Space Grotesk',sans-serif;cursor:pointer}
+.clearbtn:disabled{opacity:.4;color:#6B7686;border-color:#232B36;cursor:default}
+.donebtn{flex:1;background:#2DD4A7;border:none;color:#08110D;border-radius:11px;padding:12px;font-size:13px;font-weight:700;font-family:'Space Grotesk',sans-serif;cursor:pointer}
 @media (prefers-reduced-motion: reduce){*{transition:none!important}}
 </style>
 </head>
@@ -97,8 +114,10 @@ const chainDone = e => !!(e && e.sleep && e.walk && e.aim);
 
 let log = {};
 let openDetail = null;
+let editDate = null;
 try { log = JSON.parse(localStorage.getItem(KEY)) || {}; } catch(e){ log = {}; }
 const save = () => { try { localStorage.setItem(KEY, JSON.stringify(log)); } catch(e){} };
+const fmtDay = s => { const [y,m,d]=s.split("-").map(Number); return new Date(y,m-1,d).toLocaleDateString("en-GB",{weekday:"long",day:"numeric",month:"long"}); };
 
 function streaks(){
   const t = today();
@@ -171,7 +190,7 @@ function render(){
     const bd = isT ? `1.5px solid ${C.walk}` : "1px solid #232B36";
     const runDot = en&&en.run ? `<span class="cd" style="left:3px;background:${C.run}"></span>`:"";
     const strDot = en&&en.strength ? `<span class="cd" style="right:3px;background:${C.strength}"></span>`:"";
-    return `<button class="cell" data-act="grid" data-date="${d}" style="background:${bg};border:${bd}" aria-label="${d}">${runDot}${strDot}</button>`;
+    return `<button class="cell" data-act="editopen" data-date="${d}" style="background:${bg};border:${bd}" aria-label="${d}">${runDot}${strDot}</button>`;
   }).join("");
 
   const mp = t.slice(0,7);
@@ -201,7 +220,7 @@ function render(){
     <div class="rows">${BONUS.map(a=>row(a,!!e[a.key],true)).join("")}</div>
     ${openDetail==="strength"?strengthDetail():""}
 
-    <div class="gridhead"><span class="seclab2">Last 60 days</span><span class="hint">tap to fix a missed log</span></div>
+    <div class="gridhead"><span class="seclab2">Last 60 days</span><span class="hint">tap any day to edit</span></div>
     <div class="grid">${grid}</div>
     <div class="legend">
       <span class="lg"><span class="sw" style="background:${C.walk}"></span>chain day</span>
@@ -219,7 +238,37 @@ function render(){
       <button class="bk" data-act="import">&#8593; Import backup</button>
     </div>
     <div class="foot">Loose wrist. Quiet hand. Clean chain.</div>
+    ${editDate!==null?editorSheet(t):""}
   `;
+}
+
+function editorSheet(t){
+  const e = log[editDate]||{};
+  const items = [...ANCHORS, ...BONUS];
+  const rows = items.map(a=>{
+    const on = !!e[a.key];
+    const shape = (a.key==="run"||a.key==="strength") ? "6px" : "50%";
+    return `<button class="erow" data-act="dtoggle" data-key="${a.key}" style="${on?`background:${a.color}12;border-color:${a.color}66`:''}">
+      <span class="ebox" style="border-radius:${shape};border-color:${on?a.color:'#3A434F'};background:${on?a.color:'transparent'}">${on?check:''}</span>
+      <span class="erowtxt"><span class="erl" style="${on?'color:#E6EAF0':''}">${a.label}</span><span class="ers">${a.sub}</span></span>
+    </button>`;
+  }).join("");
+  const isToday = editDate===t;
+  const any = !!log[editDate] && Object.values(log[editDate]).some(Boolean);
+  return `<div class="backdrop" data-act="dclose">
+    <div class="sheet" data-act="noop">
+      <div class="sheethead">
+        <div><div class="sheetday">${fmtDay(editDate)}</div>${isToday?'<div class="sheetsub">TODAY</div>':''}</div>
+        <button class="xbtn" data-act="dclose" aria-label="close">✕</button>
+      </div>
+      <div class="ehint">Tap each item to mark it done or undo it.</div>
+      <div class="erows">${rows}</div>
+      <div class="sheetbtns">
+        <button class="clearbtn" data-act="dclear" ${any?'':'disabled'}>Clear this day</button>
+        <button class="donebtn" data-act="dclose">Done</button>
+      </div>
+    </div>
+  </div>`;
 }
 
 document.getElementById("app").addEventListener("click", (ev)=>{
@@ -230,10 +279,16 @@ document.getElementById("app").addEventListener("click", (ev)=>{
     const k = el.dataset.key; log[t] = {...(log[t]||{})}; log[t][k] = !log[t][k]; save(); render();
   } else if(act==="detail"){
     openDetail = openDetail===el.dataset.detail ? null : el.dataset.detail; render();
-  } else if(act==="grid"){
-    const d = el.dataset.date; const e = log[d]||{};
-    const k = !e.sleep?"sleep":!e.walk?"walk":!e.aim?"aim":"sleep";
-    log[d] = {...e}; log[d][k] = !log[d][k]; save(); render();
+  } else if(act==="editopen"){
+    editDate = el.dataset.date; render();
+  } else if(act==="dtoggle"){
+    const k = el.dataset.key; log[editDate] = {...(log[editDate]||{})}; log[editDate][k] = !log[editDate][k]; save(); render();
+  } else if(act==="dclear"){
+    delete log[editDate]; save(); render();
+  } else if(act==="dclose"){
+    editDate = null; render();
+  } else if(act==="noop"){
+    /* tap inside sheet — ignore */
   } else if(act==="export"){
     const blob = new Blob([JSON.stringify(log,null,2)],{type:"application/json"});
     const url = URL.createObjectURL(blob);
